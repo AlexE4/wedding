@@ -33,29 +33,31 @@
       50% { opacity: 1; }
     }
 
-    .stars {
+    .stars-bg {
       position: fixed;
-      width: 100%;
-      height: 100%;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
       z-index: 1;
     }
 
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
+    .stars-bg circle {
+      animation: twinkle 3s infinite ease-in-out;
     }
 
-    .star { animation: twinkle 2s ease-in-out infinite; }
-    .star.duration-2 { animation: twinkle 2s ease-in-out infinite; }
-    .star.duration-3 { animation: twinkle 3s ease-in-out infinite; }
-    .star.duration-4 { animation: twinkle 4s ease-in-out infinite; }
-    .star.duration-5 { animation: twinkle 5s ease-in-out infinite; }
+    .stars-bg circle:nth-child(odd) {
+      animation-duration: 2.5s;
+    }
+
+    .stars-bg circle:nth-child(3n) {
+      animation-duration: 3.5s;
+    }
+
+    .stars-bg circle:nth-child(5n) {
+      animation-delay: 0.5s;
+    }
 
     /* Header Section */
     header {
@@ -386,83 +388,40 @@
   </style>
 </head>
 <body>
-  <!-- Funkelnde Sterne -->
-  <div class="stars" id="starContainer"></div>
-
-  <!-- Großer Halbmond -->
-  <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 5;">
-    <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="moon-glow" cx="35%" cy="30%">
-          <stop offset="0%" stop-color="#ffeb99"/>
-          <stop offset="70%" stop-color="#ffd700"/>
-          <stop offset="100%" stop-color="#ffa500"/>
-        </radialGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <!-- Glüh-Effekt -->
-      <circle cx="60" cy="50" r="35" fill="#ffd700" opacity="0.2" filter="url(#glow)"/>
-      <!-- Halbmond -->
-      <path d="M 60 15 A 35 35 0 0 0 60 85 A 28 28 0 0 1 60 22 Z" fill="url(#moon-glow)" filter="url(#glow)"/>
-      <!-- Strahlenkranz -->
-      <g stroke="#ffd700" stroke-width="2" opacity="0.8">
-        <line x1="60" y1="0" x2="60" y2="8"/>
-        <line x1="85" y1="10" x2="80" y2="15"/>
-        <line x1="95" y1="25" x2="88" y2="32"/>
-        <line x1="98" y1="45" x2="90" y2="45"/>
-        <line x1="95" y1="65" x2="88" y2="58"/>
-        <line x1="85" y1="80" x2="80" y2="75"/>
-        <line x1="60" y1="100" x2="60" y2="92"/>
-        <line x1="35" y1="80" x2="40" y2="75"/>
-        <line x1="25" y1="65" x2="32" y2="58"/>
-        <line x1="22" y1="45" x2="30" y2="45"/>
-        <line x1="25" y1="25" x2="32" y2="32"/>
-        <line x1="35" y1="10" x2="40" y2="15"/>
-      </g>
-    </svg>
-  </div>
+  <!-- Funkelnde Sterne Hintergrund -->
+  <svg class="stars-bg" width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none">
+    <!-- Sterne verteilt -->
+    <circle cx="100" cy="80" r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="250" cy="120" r="1" fill="white" opacity="0.6"/>
+    <circle cx="380" cy="60" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="520" cy="150" r="1" fill="white" opacity="0.5"/>
+    <circle cx="650" cy="90" r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="800" cy="140" r="1" fill="white" opacity="0.6"/>
+    <circle cx="950" cy="70" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="1100" cy="110" r="1" fill="white" opacity="0.5"/>
+    <circle cx="150" cy="250" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="300" cy="280" r="1" fill="white" opacity="0.6"/>
+    <circle cx="450" cy="240" r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="600" cy="290" r="1" fill="white" opacity="0.5"/>
+    <circle cx="750" cy="260" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="900" cy="270" r="1" fill="white" opacity="0.6"/>
+    <circle cx="1050" cy="230" r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="200" cy="420" r="1" fill="white" opacity="0.6"/>
+    <circle cx="350" cy="450" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="500" cy="400" r="1" fill="white" opacity="0.5"/>
+    <circle cx="700" cy="430" r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="850" cy="410" r="1" fill="white" opacity="0.6"/>
+    <circle cx="100" cy="600" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="280" cy="620" r="1" fill="white" opacity="0.5"/>
+    <circle cx="400" cy="580" r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="600" cy="610" r="1" fill="white" opacity="0.6"/>
+    <circle cx="800" cy="590" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="950" cy="630" r="1" fill="white" opacity="0.5"/>
+    <circle cx="1100" cy="600" r="1.5" fill="white" opacity="0.8"/>
+  </svg>
 
   <header>
     <div class="hero">
-      <div class="moon-icon">
-        <svg width="90" height="90" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="moon-grad" cx="35%" cy="30%">
-              <stop offset="0%" stop-color="#fff7d1"/>
-              <stop offset="70%" stop-color="#ffd966"/>
-              <stop offset="100%" stop-color="#d4af37"/>
-            </radialGradient>
-          </defs>
-          <!-- Strahlen -->
-          <g stroke="#d4af37" stroke-width="1" opacity="0.7">
-            <line x1="50" y1="5" x2="50" y2="15"/>
-            <line x1="70.7" y1="12" x2="76.8" y2="18.2"/>
-            <line x1="82" y1="30" x2="88.1" y2="36.1"/>
-            <line x1="85" y1="50" x2="95" y2="50"/>
-            <line x1="82" y1="70" x2="88.1" y2="63.9"/>
-            <line x1="70.7" y1="88" x2="76.8" y2="81.8"/>
-            <line x1="50" y1="95" x2="50" y2="85"/>
-            <line x1="29.3" y1="88" x2="23.2" y2="81.8"/>
-            <line x1="18" y1="70" x2="11.9" y2="63.9"/>
-            <line x1="15" y1="50" x2="5" y2="50"/>
-            <line x1="18" y1="30" x2="11.9" y2="36.1"/>
-            <line x1="29.3" y1="12" x2="23.2" y2="18.2"/>
-          </g>
-          <!-- Mond -->
-          <circle cx="50" cy="42" r="20" fill="url(#moon-grad)"/>
-          <!-- Sterne -->
-          <circle cx="42" cy="38" r="1.5" fill="#fff8e6" opacity="0.9"/>
-          <circle cx="60" cy="35" r="1" fill="#fff8e6" opacity="0.8"/>
-          <circle cx="48" cy="50" r="0.8" fill="#fff8e6" opacity="0.7"/>
-        </svg>
-      </div>
-
       <div>
         <div class="names">Alexander</div>
         <div class="and">UND</div>
@@ -511,7 +470,7 @@
 
     <section id="rückmeldung">
       <h2>Rückmeldung</h2>
-      <p>Bitte gebt uns bis zum 1. September 2025 Bescheid, ob ihr kommen könnt.</p>
+      <p>Bitte gebt uns bis zum 1. September 2026 Bescheid, ob ihr kommen könnt.</p>
       <form id="rsvpForm">
         <label for="guestName">Name:</label><br>
         <input type="text" id="guestName" name="name" required>
@@ -578,38 +537,6 @@
   </footer>
 
   <script>
-    // Funkelnde Sterne generieren
-    function createStars() {
-      const starContainer = document.getElementById('starContainer');
-      if (!starContainer) return;
-      
-      const starCount = 100;
-      
-      for (let i = 0; i < starCount; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const duration = Math.floor(2 + Math.random() * 4);
-        const delay = Math.random() * 2;
-        
-        star.style.left = x + '%';
-        star.style.top = y + '%';
-        star.style.animationDelay = delay + 's';
-        star.classList.add('duration-' + duration);
-        
-        starContainer.appendChild(star);
-      }
-    }
-    
-    // Sterne sofort erstellen, nicht auf Load warten
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', createStars);
-    } else {
-      createStars();
-    }
-    
     function sendRSVPEmail() {
       const name = document.getElementById('guestName').value.trim();
       const attendance = document.getElementById('guestAttendance').value;
@@ -624,14 +551,10 @@
         ? 'Ja, ich freue mich dabei zu sein!' 
         : 'Leider kann ich nicht kommen';
 
-      const emailBody = \Hochzeitsrückmeldung von \
+      const subject = `Hochzeitsrückmeldung von ${name}`;
+      const body = `Name: ${name}%0ATeilnahme: ${attendanceText}%0ANachricht: ${message}`;
 
-Teilnahme: \
-
-Nachricht:
-\\;
-
-      const mailtoLink = \mailto:Malex2026@outlook.de?subject=Hochzeitsrückmeldung von \&body=\\;
+      const mailtoLink = `mailto:Malex2026@outlook.de?subject=${encodeURIComponent(subject)}&body=${body}`;
       window.location.href = mailtoLink;
     }
   </script>
