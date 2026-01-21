@@ -7,11 +7,11 @@
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Montserrat:400,600,700|Playfair+Display:400,700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --cream:#f5f3f0;
-      --dark:#1a1a1a;
-      --gold:#d4af37;
-      --soft:#333333;
-      --light-gold:#e8dcc4;
+      --cream:#0a1128;
+      --dark:#ffffff;
+      --gold:#64b5f6;
+      --soft:#e0f0ff;
+      --light-gold:#1e3a8a;
     }
     
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -19,19 +19,52 @@
     
     body {
       font-family: 'Montserrat', Arial, sans-serif;
-      background: #fdfbf9;
+      background: linear-gradient(135deg, #0a0e27 0%, #0d1b3d 25%, #061240 50%, #0d1b3d 75%, #0a0e27 100%);
       color: var(--soft);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* Funkelnde Sterne Animation */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .star { animation: twinkle 2s ease-in-out infinite; }
+    .star.duration-2 { animation: twinkle 2s ease-in-out infinite; }
+    .star.duration-3 { animation: twinkle 3s ease-in-out infinite; }
+    .star.duration-4 { animation: twinkle 4s ease-in-out infinite; }
+    .star.duration-5 { animation: twinkle 5s ease-in-out infinite; }
 
     /* Header Section */
     header {
       text-align: center;
       padding: 3rem 1rem 2rem;
-      background: linear-gradient(180deg, #fdfbf9 0%, var(--light-gold) 100%);
-      border-bottom: 1px solid var(--gold);
+      background: linear-gradient(180deg, #061240 0%, #0a1f52 50%, #0d1b3d 100%);
+      border-bottom: 2px solid #ffd700;
       position:relative;
+      z-index: 10;
     }
 
     .hero {
@@ -50,7 +83,7 @@
       font-size: 2.8rem;
       font-weight:700;
       margin: 0.3rem 0;
-      color: var(--dark);
+      color: #ffffff;
       letter-spacing:0.15em;
     }
 
@@ -58,7 +91,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 0.85rem;
       margin: 0.4rem 0;
-      color: var(--gold);
+      color: #90caf9;
       letter-spacing:0.25em;
       font-weight:600;
     }
@@ -67,7 +100,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 0.7rem;
       margin: 0.8rem 0 0;
-      color: var(--soft);
+      color: #e0f0ff;
       letter-spacing:0.12em;
       font-weight:600;
     }
@@ -77,14 +110,14 @@
       height: 1px;
       background: var(--gold);
       margin: 1.2rem 0 0.8rem;
-      opacity: 0.8;
+      opacity: 1;
     }
 
     .main-title {
       font-family: 'Great Vibes', cursive;
       font-size: 4.2rem;
       margin: 0;
-      color: var(--dark);
+      color: #ffffff;
       line-height:1;
     }
 
@@ -93,7 +126,7 @@
       height: 1px;
       background: var(--gold);
       margin: 1.2rem 0;
-      opacity: 0.8;
+      opacity: 1;
       position:relative;
     }
 
@@ -111,14 +144,14 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 0.95rem;
       margin: 1.2rem 0 0;
-      color: var(--soft);
+      color: #e0f0ff;
       line-height:1.7;
     }
 
     .event-date {
       font-weight:700;
       font-size: 1.15rem;
-      color: var(--dark);
+      color: #ffffff;
       font-family: 'Playfair Display', serif;
     }
 
@@ -138,54 +171,57 @@
 
     nav a {
       text-decoration:none;
-      color: var(--gold);
+      color: #ffd700;
       font-weight:700;
-      font-size:0.95rem;
+      font-size:1.1rem;
       letter-spacing:0.05em;
-      padding:0.3rem 0.6rem;
+      padding:0.5rem 0.8rem;
       border-radius:4px;
       transition: all 0.3s ease;
     }
 
     nav a:hover {
-      background: rgba(212,175,55,0.1);
-      color: var(--dark);
+      background: rgba(255, 215, 0, 0.15);
+      color: #ffffff;
     }
 
     /* Main Content */
     main {
       padding: 2.4rem 0;
+      position: relative;
+      z-index: 2;
     }
 
     section {
       max-width: 800px;
       margin: 2rem auto;
       padding: 2.2rem 2.2rem;
-      background: white;
+      background: rgba(30, 58, 138, 0.3);
       border-top: 3px solid var(--gold);
-      border-bottom: 1px solid var(--light-gold);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-bottom: 1px solid rgba(144, 202, 249, 0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       color: var(--soft);
+      backdrop-filter: blur(10px);
     }
 
     section h2 {
       font-family: 'Playfair Display', serif;
-      color: var(--dark);
+      color: #ffd700;
       font-size: 2.2rem;
       margin: 0 0 1.2rem 0;
       padding-bottom: 0.8rem;
-      border-bottom: 2px solid var(--light-gold);
+      border-bottom: 2px solid rgba(255, 215, 0, 0.4);
     }
 
     p {
       font-size: 1rem;
       line-height:1.7;
-      color: var(--soft);
+      color: #e0f0ff;
       margin-bottom: 1rem;
     }
 
     strong {
-      color: var(--dark);
+      color: #ffffff;
       font-weight:700;
     }
 
@@ -197,13 +233,13 @@
     li {
       font-size: 1rem;
       line-height:1.8;
-      color: var(--soft);
+      color: #e0f0ff;
       margin-bottom: 0.6rem;
     }
 
     label {
       font-size: 1rem;
-      color: var(--soft);
+      color: #e0f0ff;
       font-weight:600;
     }
 
@@ -214,9 +250,9 @@
       width:100%;
       padding: 0.75rem;
       border-radius: 6px;
-      border: 1px solid var(--light-gold);
-      background: #fafaf8;
-      color: var(--soft);
+      border: 1px solid var(--gold);
+      background: rgba(26, 35, 126, 0.5);
+      color: #ffffff;
       font-size: 1rem;
       font-family: 'Montserrat', sans-serif;
       margin-top: 0.4rem;
@@ -227,19 +263,19 @@
     select:focus,
     textarea:focus {
       outline: none;
-      border-color: var(--gold);
-      background: white;
-      box-shadow: 0 0 8px rgba(212,175,55,0.1);
+      border-color: #90caf9;
+      background: rgba(26, 35, 126, 0.8);
+      box-shadow: 0 0 8px rgba(144, 202, 249, 0.3);
     }
 
     select {
-      background: white;
+      background: rgba(26, 35, 126, 0.5);
       cursor: pointer;
     }
 
     select option {
-      background: white;
-      color: var(--soft);
+      background: #1a237e;
+      color: #ffffff;
     }
 
     textarea {
@@ -250,9 +286,9 @@
     /* Buttons */
     .rsvp-btn {
       display:inline-block;
-      background: linear-gradient(180deg, #e8dcc4, #d4af37);
-      color: var(--dark);
-      border: 2px solid var(--gold);
+      background: linear-gradient(180deg, #0a1f52, #0d1b3d);
+      color: #ffffff;
+      border: 2px solid #ffd700;
       padding: 0.85em 2em;
       font-size: 1rem;
       border-radius: 8px;
@@ -264,14 +300,14 @@
     }
 
     .rsvp-btn:hover {
-      background: linear-gradient(180deg, #d4af37, #c99f2e);
+      background: linear-gradient(180deg, #1565c0, #0a1f52);
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(212,175,55,0.2);
+      box-shadow: 0 6px 15px rgba(255, 215, 0, 0.3);
     }
 
     /* FAQ Styles */
     details {
-      background: #fafaf8;
+      background: rgba(26, 35, 126, 0.3);
       border-radius: 8px;
       padding: 1.2rem;
       margin-bottom: 1rem;
@@ -280,13 +316,13 @@
     }
 
     details:hover {
-      background: #f5f3f0;
+      background: rgba(26, 35, 126, 0.5);
     }
 
     summary {
       cursor: pointer;
       font-weight:700;
-      color: var(--dark);
+      color: #ffffff;
       outline:none;
       list-style:none;
       font-size: 1.05rem;
@@ -294,7 +330,7 @@
     }
 
     summary:hover {
-      color: var(--gold);
+      color: #90caf9;
     }
 
     summary::-webkit-details-marker {
@@ -314,7 +350,7 @@
 
     details p {
       margin: 0.8rem 0 0 0;
-      color: var(--soft);
+      color: #e0f0ff;
       font-weight:400;
     }
 
@@ -332,9 +368,9 @@
     footer {
       text-align:center;
       padding: 2rem 1rem;
-      background: linear-gradient(180deg, #fafaf8 0%, var(--light-gold) 100%);
-      color: var(--soft);
-      border-top: 1px solid var(--gold);
+      background: linear-gradient(180deg, rgba(26, 35, 126, 0.4) 0%, #0a1128 100%);
+      color: #e0f0ff;
+      border-top: 2px solid var(--gold);
       margin-top: 2rem;
       font-size: 0.95rem;
     }
@@ -350,6 +386,48 @@
   </style>
 </head>
 <body>
+  <!-- Funkelnde Sterne -->
+  <div class="stars" id="starContainer"></div>
+
+  <!-- Großer Halbmond -->
+  <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 5;">
+    <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="moon-glow" cx="35%" cy="30%">
+          <stop offset="0%" stop-color="#ffeb99"/>
+          <stop offset="70%" stop-color="#ffd700"/>
+          <stop offset="100%" stop-color="#ffa500"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <!-- Glüh-Effekt -->
+      <circle cx="60" cy="50" r="35" fill="#ffd700" opacity="0.2" filter="url(#glow)"/>
+      <!-- Halbmond -->
+      <path d="M 60 15 A 35 35 0 0 0 60 85 A 28 28 0 0 1 60 22 Z" fill="url(#moon-glow)" filter="url(#glow)"/>
+      <!-- Strahlenkranz -->
+      <g stroke="#ffd700" stroke-width="2" opacity="0.8">
+        <line x1="60" y1="0" x2="60" y2="8"/>
+        <line x1="85" y1="10" x2="80" y2="15"/>
+        <line x1="95" y1="25" x2="88" y2="32"/>
+        <line x1="98" y1="45" x2="90" y2="45"/>
+        <line x1="95" y1="65" x2="88" y2="58"/>
+        <line x1="85" y1="80" x2="80" y2="75"/>
+        <line x1="60" y1="100" x2="60" y2="92"/>
+        <line x1="35" y1="80" x2="40" y2="75"/>
+        <line x1="25" y1="65" x2="32" y2="58"/>
+        <line x1="22" y1="45" x2="30" y2="45"/>
+        <line x1="25" y1="25" x2="32" y2="32"/>
+        <line x1="35" y1="10" x2="40" y2="15"/>
+      </g>
+    </svg>
+  </div>
+
   <header>
     <div class="hero">
       <div class="moon-icon">
@@ -500,6 +578,38 @@
   </footer>
 
   <script>
+    // Funkelnde Sterne generieren
+    function createStars() {
+      const starContainer = document.getElementById('starContainer');
+      if (!starContainer) return;
+      
+      const starCount = 100;
+      
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.floor(2 + Math.random() * 4);
+        const delay = Math.random() * 2;
+        
+        star.style.left = x + '%';
+        star.style.top = y + '%';
+        star.style.animationDelay = delay + 's';
+        star.classList.add('duration-' + duration);
+        
+        starContainer.appendChild(star);
+      }
+    }
+    
+    // Sterne sofort erstellen, nicht auf Load warten
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', createStars);
+    } else {
+      createStars();
+    }
+    
     function sendRSVPEmail() {
       const name = document.getElementById('guestName').value.trim();
       const attendance = document.getElementById('guestAttendance').value;
