@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alex &amp; Magda Hochzeit</title>
-  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Montserrat:400,600,700&display=swap" rel="stylesheet">
+  <title>Alexander &amp; Magdalena Hochzeit</title>
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Montserrat:400,600,700|Playfair+Display:400,700&display=swap" rel="stylesheet">
   <style>
     :root{
       --deep-blue:#071530;
@@ -23,42 +23,34 @@
       position:relative;
       overflow-x:hidden;
     }
-    /* Stern-Hintergrund (Animation) */
     .stars { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
-    .star {
-      position:absolute;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background: radial-gradient(circle, #fff8e6 0%, rgba(212,175,55,0.95) 60%);
-      filter: drop-shadow(0 0 6px rgba(212,175,55,0.18));
-      opacity:0.9;
-      transform: translateY(0) scale(1);
-      animation: twinkle linear infinite;
-    }
-    @keyframes twinkle {
-      0% { transform: translateY(0) scale(1); opacity:0.5; }
-      50% { transform: translateY(-8px) scale(1.6); opacity:1; }
-      100% { transform: translateY(0) scale(1); opacity:0.5; }
-    }
+    .star { position:absolute; width:4px; height:4px; border-radius:50%; background: radial-gradient(circle, #fff8e6 0%, rgba(212,175,55,0.95) 60%); filter: drop-shadow(0 0 6px rgba(212,175,55,0.18)); opacity:0.9; transform: translateY(0) scale(1); animation: twinkle linear infinite; }
+    @keyframes twinkle { 0% { transform: translateY(0) scale(1); opacity:0.5; } 50% { transform: translateY(-8px) scale(1.6); opacity:1; } 100% { transform: translateY(0) scale(1); opacity:0.5; } }
 
-    header {
-      text-align: center;
-      padding: 3.2rem 1rem 1.2rem;
-      position:relative;
-      z-index:1;
-    }
-    .hero { display:inline-flex; align-items:center; gap:1rem; }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.2rem;
-      margin: 0;
-      color: var(--gold);
-      line-height:1;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    }
-    header p { font-size: 1.1rem; margin: 0.4rem 0 0; color: var(--soft); font-weight:600; }
-    nav { display:flex; justify-content:center; gap:1.6rem; margin:1.2rem 0 0; flex-wrap:wrap; z-index:1; position:relative; }
+    header { text-align: center; padding: 2.4rem 1rem 2.8rem; position:relative; z-index:1; }
+    
+    .hero { display:flex; flex-direction:column; align-items:center; gap:1.2rem; }
+    
+    .moon-icon { margin-bottom:0.4rem; }
+    
+    .names { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight:700; margin: 0.2rem 0; color: #000000; letter-spacing:0.15em; }
+    
+    .and { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; margin: 0.3rem 0; color: var(--gold); letter-spacing:0.2em; font-weight:600; }
+    
+    .tagline { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; margin: 0.8rem 0 0 0; color: #333333; letter-spacing:0.1em; font-weight:600; }
+    
+    .divider-top { width: 80px; height: 1px; background: var(--gold); margin: 1rem 0 0.8rem 0; opacity: 0.6; }
+    
+    .main-title { font-family: 'Great Vibes', cursive; font-size: 4rem; margin: 0; color: #000000; line-height:1; text-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+    
+    .divider-bottom { width: 80px; height: 1px; background: var(--gold); margin: 1.2rem 0; opacity: 0.6; position:relative; }
+    .divider-bottom:before { content:"✦"; position:absolute; left:50%; top:-10px; transform:translateX(-50%); color: var(--gold); font-size:0.8rem; }
+    
+    .event-details { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; margin: 1.2rem 0 0 0; color: #333333; line-height:1.6; }
+    .event-date { font-weight:700; font-size: 1.1rem; color: #000000; }
+    .event-time-location { font-size: 0.85rem; opacity: 0.85; }
+    
+    nav { display:flex; justify-content:center; gap:1.6rem; margin:1.6rem 0 0; flex-wrap:wrap; z-index:1; position:relative; }
     nav a { text-decoration:none; color:var(--gold); font-weight:700; font-size:1rem; padding:0.25rem 0.4rem; border-radius:4px; }
     nav a:hover{ background: rgba(212,175,55,0.08); }
 
@@ -84,63 +76,31 @@
     }
     p, li, label { font-size: 1rem; line-height:1.5; color:var(--soft); }
     ul { padding-left:1.2rem; margin:0.4rem 0 0 0; }
-    .rsvp-btn {
-      display:inline-block;
-      background: linear-gradient(180deg, #ffd966, #d4af37);
-      color: #071530;
-      border: none;
-      padding: 0.7em 1.6em;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight:700;
-      text-decoration:none;
-    }
+    .rsvp-btn { display:inline-block; background: linear-gradient(180deg, #ffd966, #d4af37); color: #071530; border: none; padding: 0.7em 1.6em; font-size: 1rem; border-radius: 8px; cursor: pointer; font-weight:700; text-decoration:none; }
     .rsvp-btn:hover{ filter:brightness(0.98) }
-
     footer { text-align:center; padding:1.2rem; color:var(--soft); margin-top:1.6rem; position:relative; z-index:1; }
 
-    /* FAQ styles */
-    details {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: 8px;
-      padding: 0.9rem 1rem;
-      margin-bottom: 0.9rem;
-      border:1px solid rgba(255,255,255,0.03);
-    }
+    details { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: 8px; padding: 0.9rem 1rem; margin-bottom: 0.9rem; border:1px solid rgba(255,255,255,0.03); }
     summary { cursor: pointer; font-weight:700; color: var(--gold); outline:none; list-style:none; }
     summary::-webkit-details-marker { display:none; }
     summary:before{ content: "☆"; margin-right:0.6rem; color: rgba(255,255,255,0.9); font-weight:700; }
     details[open] summary:before{ content:"★"; color: var(--gold); }
     details p { margin: 0.6rem 0 0 0; color: var(--soft); font-weight:400; }
 
-    /* Form inputs */
-    input[type="text"], textarea {
-      width:100%; padding:0.55rem; border-radius:6px; border:1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02); color: var(--soft); font-size: 0.95rem; box-sizing:border-box;
-    }
-    
-    select {
-      width:100%; padding:0.55rem; border-radius:6px; border:1px solid rgba(255,255,255,0.08);
-      background: #000000; color: #ffffff; font-size: 0.95rem; box-sizing:border-box;
-      cursor: pointer;
-    }
-    
-    select option {
-      background: #000000; color: #ffffff;
-    }
+    input[type="text"], textarea { width:100%; padding:0.55rem; border-radius:6px; border:1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); color: var(--soft); font-size: 0.95rem; box-sizing:border-box; }
+    select { width:100%; padding:0.55rem; border-radius:6px; border:1px solid rgba(255,255,255,0.08); background: #000000; color: #ffffff; font-size: 0.95rem; box-sizing:border-box; cursor: pointer; }
+    select option { background: #000000; color: #ffffff; }
 
-    /* Google Maps embed */
     .map-embed { width:100%; height:220px; border:0; border-radius:8px; margin-top:0.8rem; display:block; }
 
-    @media (max-width: 700px) {
-      header h1 { font-size:2.4rem; }
-      section { margin: 1rem; padding: 1rem; }
+    @media (max-width: 700px) { 
+      .names { font-size:2rem; }
+      .main-title { font-size:2.8rem; }
+      section { margin: 1rem; padding: 1rem; } 
     }
   </style>
 </head>
 <body>
-  <!-- Stern-Elemente: erzeugen mehrere Sterne mit verschiedenen Positionen/Delays -->
   <div class="stars" aria-hidden="true">
     <span class="star" style="left:6%; top:12%; animation-duration:2.8s; animation-delay:-0.3s;"></span>
     <span class="star" style="left:14%; top:22%; animation-duration:3.6s; animation-delay:-0.8s; width:3px; height:3px;"></span>
@@ -156,22 +116,51 @@
 
   <header>
     <div class="hero">
-      <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <defs>
-          <radialGradient id="g" cx="35%" cy="30%">
-            <stop offset="0%" stop-color="#fff7d1"/>
-            <stop offset="70%" stop-color="#ffd966"/>
-            <stop offset="100%" stop-color="#d4af37"/>
-          </radialGradient>
-        </defs>
-        <circle cx="44" cy="34" r="22" fill="url(#g)" />
-        <circle cx="34" cy="26" r="2.2" fill="#fff8e6" opacity="0.9"/>
-        <circle cx="60" cy="18" r="1.6" fill="#fff8e6" opacity="0.85"/>
-        <circle cx="18" cy="18" r="1.2" fill="#fff8e6" opacity="0.8"/>
-      </svg>
-      <div>
-        <h1>Alex &amp; Magda</h1>
-        <p>Wir werden heiraten!</p>
+      <div class="moon-icon">
+        <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="moon-grad" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#fff7d1"/>
+              <stop offset="70%" stop-color="#ffd966"/>
+              <stop offset="100%" stop-color="#d4af37"/>
+            </radialGradient>
+          </defs>
+          <!-- Strahlen -->
+          <g stroke="#d4af37" stroke-width="1.2" opacity="0.8">
+            <line x1="50" y1="8" x2="50" y2="18"/>
+            <line x1="70.7" y1="15.4" x2="76.8" y2="21.5"/>
+            <line x1="82" y1="32.3" x2="88.1" y2="38.4"/>
+            <line x1="84" y1="50" x2="94" y2="50"/>
+            <line x1="82" y1="67.7" x2="88.1" y2="61.6"/>
+            <line x1="70.7" y1="84.6" x2="76.8" y2="78.5"/>
+            <line x1="50" y1="92" x2="50" y2="82"/>
+            <line x1="29.3" y1="84.6" x2="23.2" y2="78.5"/>
+            <line x1="18" y1="67.7" x2="11.9" y2="61.6"/>
+            <line x1="16" y1="50" x2="6" y2="50"/>
+            <line x1="18" y1="32.3" x2="11.9" y2="38.4"/>
+            <line x1="29.3" y1="15.4" x2="23.2" y2="21.5"/>
+          </g>
+          <!-- Mond -->
+          <circle cx="50" cy="42" r="22" fill="url(#moon-grad)"/>
+          <!-- Sterne im Mond -->
+          <circle cx="42" cy="38" r="1.8" fill="#fff8e6" opacity="0.9"/>
+          <circle cx="60" cy="34" r="1.2" fill="#fff8e6" opacity="0.8"/>
+          <circle cx="48" cy="52" r="1" fill="#fff8e6" opacity="0.7"/>
+        </svg>
+      </div>
+      
+      <div style="text-align:center;">
+        <div class="names">Alexander</div>
+        <div class="and">UND</div>
+        <div class="names">Magdalena</div>
+        <div class="tagline">LADEN EIN ZU EINER UNVERGESSLICHEN NACHT</div>
+        <div class="divider-top"></div>
+        <div class="main-title">Unter den Sternen</div>
+        <div class="divider-bottom"></div>
+        <div class="event-details">
+          <div class="event-date">10.10.2026</div>
+          <div class="event-time-location">13 Uhr<br>Gasthaus zur Linde, Hauptstraße 15, 29393 Groß Oesingen</div>
+        </div>
       </div>
     </div>
 
@@ -187,14 +176,8 @@
   <main>
     <section id="details">
       <h2>Hochzeitsdetails</h2>
-      <p>
-        <strong>Datum:</strong> 10. Oktober 2026 <br>
-        <strong>Uhrzeit:</strong> 13:00 Uhr<br>
-        <strong>Ort:</strong> Gasthaus "Zur Linde", Hauptstraße 15, 29393 Groß Oesingen
-      </p>
       <p>Wir freuen uns sehr, diesen besonderen Tag mit unserer Familie und unseren Freunden zu feiern. Begleitet uns zu einer schönen Zeremonie, gefolgt von einem Abendessen und Tanz!</p>
 
-      <!-- Google Maps: Link zur Wegbeschreibung + eingebettete Karte -->
       <p style="margin-top:0.8rem;">
         <strong>Wegbeschreibung:</strong>
         <a href="https://www.google.com/maps/dir/?api=1&destination=Gasthaus+zur+Linde+Hauptstra%C3%9Fe+15+29393+Gro%C3%9F+Oesingen&travelmode=driving" target="_blank" rel="noopener noreferrer" class="rsvp-btn" style="padding:0.45rem 0.9rem; font-size:0.95rem;">Route anzeigen</a>
@@ -241,49 +224,41 @@
 
     <section id="faq">
       <h2>FAQ</h2>
-
       <details>
         <summary>Gibt es Parkmöglichkeiten vor Ort?</summary>
         <p>Ja, es gibt kostenfreie Parkplätze direkt am Gasthaus "zur Linde" sowie öffentliche Parkplätze in der Nähe.</p>
       </details>
-
       <details>
         <summary>Gibt es eine Kleiderordnung?</summary>
         <p>Keine strenge Kleiderordnung – gerne festlich. Achtet bitte auf wettergerechte Kleidung für Teile der Feier im Freien.</p>
       </details>
-
       <details>
         <summary>Kann ich meine Begleitung mitbringen?</summary>
         <p>Bitte gebt in eurer Rückmeldung an, ob ihr in Begleitung kommt und den Namen eurer Begleitung.</p>
       </details>
-
       <details>
         <summary>Gibt es Übernachtungsmöglichkeiten in der Nähe?</summary>
         <p>Ja, es gibt mehrere Hotels und Pensionen in der Umgebung. Wir schicken auf Wunsch gern Empfehlungen.</p>
       </details>
-
       <details>
         <summary>Wohin wende ich mich bei Allergien / speziellen Essenswünschen?</summary>
         <p>Bitte vermerkt Allergien oder besondere Essenswünsche in eurer Rückmeldung oder schreibt uns direkt per E-Mail.</p>
       </details>
-
     </section>
 
     <section id="Playlist">
       <h2>Playlist</h2>
-      <p>Damit ihr euch schonmal in Stimmung bringen könnt, haben wir hier noch paar Songs für euch </p>
-    <!-- Spotify-Embed: ersetze die Playlist-ID (37i9dQZF1DXcBWIGoYBM5M) mit eurer eigenen Playlist oder Track-ID -->
+      <p>Damit ihr euch schonmal in Stimmung bringen könnt, hört hier unsere Spotify-Auswahl:</p>
       <div style="margin-top:0.8rem;">
-        <iframe src="https://open.spotify.com/embed/track/0bfvHnWWOeU1U5XeKyVLbW" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" title="Spotify Playlist"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" title="Spotify Playlist"></iframe>
       </div>
-
       <p style="font-size:0.9rem; margin-top:0.5rem; opacity:0.9;">Hinweis: Der Player funktioniert am besten, wenn Gäste in ihrem Spotify-Account eingeloggt sind.</p>
     </section>
 
   </main>
 
   <footer>
-    &copy; 2025 Alex &amp; Magda | Wir freuen uns, mit euch zu feiern!
+    &copy; 2025 Alexander &amp; Magdalena | Wir freuen uns, mit euch zu feiern!
   </footer>
 
   <script>
@@ -301,14 +276,14 @@
         ? 'Ja, ich freue mich dabei zu sein!' 
         : 'Leider kann ich nicht kommen';
 
-      const emailBody = `Hochzeitsrückmeldung von ${name}
+      const emailBody = \Hochzeitsrückmeldung von \
 
-Teilnahme: ${attendanceText}
+Teilnahme: \
 
 Nachricht:
-${message || '(keine Nachricht)'}`;
+\\;
 
-      const mailtoLink = `mailto:Malex2026@outlook.de?subject=Hochzeitsrückmeldung von ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink = \mailto:Malex2026@outlook.de?subject=Hochzeitsrückmeldung von \&body=\\;
       window.location.href = mailtoLink;
     }
   </script>
