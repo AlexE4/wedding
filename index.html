@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alex &amp; Magda Hochzeit</title>
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Montserrat:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --deep-blue:#071530;
+      --navy:#0b2545;
+      --gold:#d4af37;
+      --soft:#f6f7fb;
+      --panel-bg: rgba(7, 21, 48, 0.92);
+    }
+    html,body{height:100%;margin:0}
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 60%, #020617 100%);
+      color: var(--soft);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      position:relative;
+      overflow-x:hidden;
+    }
+    /* Stern-Hintergrund (Animation) */
+    .stars { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+    .star {
+      position:absolute;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background: radial-gradient(circle, #fff8e6 0%, rgba(212,175,55,0.95) 60%);
+      filter: drop-shadow(0 0 6px rgba(212,175,55,0.18));
+      opacity:0.9;
+      transform: translateY(0) scale(1);
+      animation: twinkle linear infinite;
+    }
+    @keyframes twinkle {
+      0% { transform: translateY(0) scale(1); opacity:0.5; }
+      50% { transform: translateY(-8px) scale(1.6); opacity:1; }
+      100% { transform: translateY(0) scale(1); opacity:0.5; }
+    }
+
+    header {
+      text-align: center;
+      padding: 3.2rem 1rem 1.2rem;
+      position:relative;
+      z-index:1;
+    }
+    .hero { display:inline-flex; align-items:center; gap:1rem; }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2rem;
+      margin: 0;
+      color: var(--gold);
+      line-height:1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    header p { font-size: 1.1rem; margin: 0.4rem 0 0; color: var(--soft); font-weight:600; }
+    nav { display:flex; justify-content:center; gap:1.6rem; margin:1.2rem 0 0; flex-wrap:wrap; z-index:1; position:relative; }
+    nav a { text-decoration:none; color:var(--gold); font-weight:700; font-size:1rem; padding:0.25rem 0.4rem; border-radius:4px; }
+    nav a:hover{ background: rgba(212,175,55,0.08); }
+
+    main{padding-bottom:2rem; position:relative; z-index:1;}
+    section {
+      max-width: 760px;
+      margin: 1.6rem auto;
+      padding: 1.6rem 1.8rem;
+      background: var(--panel-bg);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-left: 4px solid rgba(212,175,55,0.18);
+      color: var(--soft);
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      position:relative;
+      z-index:1;
+    }
+    section h2 {
+      font-family: 'Great Vibes', cursive;
+      color: var(--gold);
+      font-size: 2rem;
+      margin: 0 0 0.6rem 0;
+    }
+    p, li, label { font-size: 1rem; line-height:1.5; color:var(--soft); }
+    ul { padding-left:1.2rem; margin:0.4rem 0 0 0; }
+    .rsvp-btn {
+      display:inline-block;
+      background: linear-gradient(180deg, #ffd966, #d4af37);
+      color: #071530;
+      border: none;
+      padding: 0.7em 1.6em;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .rsvp-btn:hover{ filter:brightness(0.98) }
+
+    footer { text-align:center; padding:1.2rem; color:var(--soft); margin-top:1.6rem; position:relative; z-index:1; }
+
+    /* FAQ styles */
+    details {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.9rem;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    summary { cursor: pointer; font-weight:700; color: var(--gold); outline:none; list-style:none; }
+    summary::-webkit-details-marker { display:none; }
+    summary:before{ content: "☆"; margin-right:0.6rem; color: rgba(255,255,255,0.9); font-weight:700; }
+    details[open] summary:before{ content:"★"; color: var(--gold); }
+    details p { margin: 0.6rem 0 0 0; color: var(--soft); font-weight:400; }
+
+    /* Form inputs */
+    input[type="text"], textarea {
+      width:100%; padding:0.55rem; border-radius:6px; border:1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02); color: var(--soft); font-size: 0.95rem; box-sizing:border-box;
+    }
+    
+    select {
+      width:100%; padding:0.55rem; border-radius:6px; border:1px solid rgba(255,255,255,0.08);
+      background: #000000; color: #ffffff; font-size: 0.95rem; box-sizing:border-box;
+      cursor: pointer;
+    }
+    
+    select option {
+      background: #000000; color: #ffffff;
+    }
+
+    /* Google Maps embed */
+    .map-embed { width:100%; height:220px; border:0; border-radius:8px; margin-top:0.8rem; display:block; }
+
+    @media (max-width: 700px) {
+      header h1 { font-size:2.4rem; }
+      section { margin: 1rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Stern-Elemente: erzeugen mehrere Sterne mit verschiedenen Positionen/Delays -->
+  <div class="stars" aria-hidden="true">
+    <span class="star" style="left:6%; top:12%; animation-duration:2.8s; animation-delay:-0.3s;"></span>
+    <span class="star" style="left:14%; top:22%; animation-duration:3.6s; animation-delay:-0.8s; width:3px; height:3px;"></span>
+    <span class="star" style="left:26%; top:8%; animation-duration:2.4s; animation-delay:-0.5s;"></span>
+    <span class="star" style="left:38%; top:18%; animation-duration:3.2s; animation-delay:-1.1s; width:2.8px; height:2.8px;"></span>
+    <span class="star" style="left:50%; top:6%; animation-duration:2.6s; animation-delay:-0.2s;"></span>
+    <span class="star" style="left:62%; top:28%; animation-duration:3.8s; animation-delay:-0.9s; width:3px; height:3px;"></span>
+    <span class="star" style="left:74%; top:14%; animation-duration:2.2s; animation-delay:-0.4s;"></span>
+    <span class="star" style="left:86%; top:24%; animation-duration:3.0s; animation-delay:-0.6s; width:3.5px; height:3.5px;"></span>
+    <span class="star" style="left:82%; top:6%; animation-duration:2.9s; animation-delay:-0.7s;"></span>
+    <span class="star" style="left:18%; top:44%; animation-duration:3.4s; animation-delay:-1.3s; width:2.6px; height:2.6px;"></span>
+  </div>
+
+  <header>
+    <div class="hero">
+      <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="g" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#fff7d1"/>
+            <stop offset="70%" stop-color="#ffd966"/>
+            <stop offset="100%" stop-color="#d4af37"/>
+          </radialGradient>
+        </defs>
+        <circle cx="44" cy="34" r="22" fill="url(#g)" />
+        <circle cx="34" cy="26" r="2.2" fill="#fff8e6" opacity="0.9"/>
+        <circle cx="60" cy="18" r="1.6" fill="#fff8e6" opacity="0.85"/>
+        <circle cx="18" cy="18" r="1.2" fill="#fff8e6" opacity="0.8"/>
+      </svg>
+      <div>
+        <h1>Alex &amp; Magda</h1>
+        <p>Wir werden heiraten!</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#details">Hochzeitsdetails</a>
+      <a href="#ablaufplan">Ablaufplan</a>
+      <a href="#rückmeldung">Rückmeldung</a>
+      <a href="#Playlist">Playlist</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="details">
+      <h2>Hochzeitsdetails</h2>
+      <p>
+        <strong>Datum:</strong> 10. Oktober 2026 <br>
+        <strong>Uhrzeit:</strong> 13:00 Uhr<br>
+        <strong>Ort:</strong> Gasthaus "Zur Linde", Hauptstraße 15, 29393 Groß Oesingen
+      </p>
+      <p>Wir freuen uns sehr, diesen besonderen Tag mit unserer Familie und unseren Freunden zu feiern. Begleitet uns zu einer schönen Zeremonie, gefolgt von einem Abendessen und Tanz!</p>
+
+      <!-- Google Maps: Link zur Wegbeschreibung + eingebettete Karte -->
+      <p style="margin-top:0.8rem;">
+        <strong>Wegbeschreibung:</strong>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Gasthaus+zur+Linde+Hauptstra%C3%9Fe+15+29393+Gro%C3%9F+Oesingen&travelmode=driving" target="_blank" rel="noopener noreferrer" class="rsvp-btn" style="padding:0.45rem 0.9rem; font-size:0.95rem;">Route anzeigen</a>
+      </p>
+      <iframe class="map-embed" src="https://www.google.com/maps?q=Gasthaus+zur+Linde+Hauptstra%C3%9Fe+15+29393+Gro%C3%9F+Oesingen&output=embed" aria-hidden="false" title="Karte: Gasthaus zur Linde"></iframe>
+    </section>
+
+    <section id="ablaufplan">
+      <h2>Ablaufplan</h2>
+      <ul>
+        <li><strong>16:00 Uhr</strong> – Zeremonie</li>
+        <li><strong>17:00 Uhr</strong> – Sektempfang</li>
+        <li><strong>18:00 Uhr</strong> – Abendessen</li>
+        <li><strong>20:00 Uhr</strong> – Tanz &amp; Feier</li>
+      </ul>
+    </section>
+
+    <section id="rückmeldung">
+      <h2>Rückmeldung</h2>
+      <p>Bitte gebt uns bis zum 1. September 2025 Bescheid, ob ihr kommen könnt.</p>
+      <form id="rsvpForm">
+        <label>
+          Name:<br>
+          <input type="text" name="name" id="guestName" required>
+        </label>
+        <br><br>
+        <label>
+          Wirst du teilnehmen?<br>
+          <select name="attendance" id="guestAttendance" required>
+            <option value="">Bitte wählen</option>
+            <option value="yes">Ja, ich freue mich dabei zu sein!</option>
+            <option value="no">Leider kann ich nicht kommen</option>
+          </select>
+        </label>
+        <br><br>
+        <label>
+          Nachricht:<br>
+          <textarea name="message" id="guestMessage" rows="3" placeholder="Hinterlasse uns eine Nachricht!"></textarea>
+        </label>
+        <br><br>
+        <button type="button" class="rsvp-btn" onclick="sendRSVPEmail()">E-Mail senden</button>
+      </form>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>Gibt es Parkmöglichkeiten vor Ort?</summary>
+        <p>Ja, es gibt kostenfreie Parkplätze direkt am Gasthaus "zur Linde" sowie öffentliche Parkplätze in der Nähe.</p>
+      </details>
+
+      <details>
+        <summary>Gibt es eine Kleiderordnung?</summary>
+        <p>Keine strenge Kleiderordnung – gerne festlich. Achtet bitte auf wettergerechte Kleidung für Teile der Feier im Freien.</p>
+      </details>
+
+      <details>
+        <summary>Kann ich meine Begleitung mitbringen?</summary>
+        <p>Bitte gebt in eurer Rückmeldung an, ob ihr in Begleitung kommt und den Namen eurer Begleitung.</p>
+      </details>
+
+      <details>
+        <summary>Gibt es Übernachtungsmöglichkeiten in der Nähe?</summary>
+        <p>Ja, es gibt mehrere Hotels und Pensionen in der Umgebung. Wir schicken auf Wunsch gern Empfehlungen.</p>
+      </details>
+
+      <details>
+        <summary>Wohin wende ich mich bei Allergien / speziellen Essenswünschen?</summary>
+        <p>Bitte vermerkt Allergien oder besondere Essenswünsche in eurer Rückmeldung oder schreibt uns direkt per E-Mail.</p>
+      </details>
+
+    </section>
+
+    <section id="Playlist">
+      <h2>Playlist</h2>
+      <p>Damit ihr euch schonmal in Stimmung bringen könnt, haben wir hier noch paar Songs für euch </p>
+    <!-- Spotify-Embed: ersetze die Playlist-ID (37i9dQZF1DXcBWIGoYBM5M) mit eurer eigenen Playlist oder Track-ID -->
+      <div style="margin-top:0.8rem;">
+        <iframe src="https://open.spotify.com/embed/track/0bfvHnWWOeU1U5XeKyVLbW" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" title="Spotify Playlist"></iframe>
+      </div>
+
+      <p style="font-size:0.9rem; margin-top:0.5rem; opacity:0.9;">Hinweis: Der Player funktioniert am besten, wenn Gäste in ihrem Spotify-Account eingeloggt sind.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Alex &amp; Magda | Wir freuen uns, mit euch zu feiern!
+  </footer>
+
+  <script>
+    function sendRSVPEmail() {
+      const name = document.getElementById('guestName').value.trim();
+      const attendance = document.getElementById('guestAttendance').value;
+      const message = document.getElementById('guestMessage').value.trim();
+
+      if (!name || !attendance) {
+        alert('Bitte füllen Sie mindestens Name und Teilnahme aus!');
+        return;
+      }
+
+      const attendanceText = attendance === 'yes' 
+        ? 'Ja, ich freue mich dabei zu sein!' 
+        : 'Leider kann ich nicht kommen';
+
+      const emailBody = `Hochzeitsrückmeldung von ${name}
+
+Teilnahme: ${attendanceText}
+
+Nachricht:
+${message || '(keine Nachricht)'}`;
+
+      const mailtoLink = `mailto:Malex2026@outlook.de?subject=Hochzeitsrückmeldung von ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
+      window.location.href = mailtoLink;
+    }
+  </script>
+</body>
+</html>
