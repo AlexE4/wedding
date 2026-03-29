@@ -60,6 +60,29 @@
       animation-delay: 0.5s;
     }
 
+    .header-stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      overflow: visible;
+    }
+
+    .header-stars circle {
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    .header-stars circle:nth-child(odd) {
+      animation-duration: 2.4s;
+    }
+
+    .header-stars circle:nth-child(3n) {
+      animation-duration: 3.6s;
+    }
+
     /* Header Section */
     header {
       text-align: center;
@@ -192,6 +215,55 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       color: var(--soft);
       backdrop-filter: blur(10px);
+    }
+
+    .greeting-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .greeting-image {
+      width: clamp(220px, 40vw, 420px);
+      max-width: 48%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      object-fit: cover;
+    }
+
+    .countdown-box {
+      background: rgba(26, 35, 126, 0.65);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      text-align: center;
+      min-width: 220px;
+    }
+
+    #countdown {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #F7E7CE;
+      margin-bottom: 0.45rem;
+    }
+
+    #countdown + p {
+      font-size: 0.95rem;
+      color: #d1d9ff;
+      margin: 0;
+    }
+
+    .greeting-text {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #F7E7CE;
+      text-align: center;
+      margin-top: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     section h2 {
@@ -344,6 +416,33 @@
       font-weight:400;
     }
 
+    #faq a {
+      color: #CCA300;
+      text-decoration: none;
+    }
+
+    #faq a:hover {
+      color: #F7E7CE;
+    }
+
+    .contact-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-block h3 {
+      color: #CCA300;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-block p {
+      color: #F7E7CE;
+      line-height: 1.6;
+    }
+
     /* Maps */
     .map-embed {
       width:100%;
@@ -406,9 +505,39 @@
     <circle cx="800" cy="590" r="1.2" fill="white" opacity="0.7"/>
     <circle cx="950" cy="630" r="1" fill="white" opacity="0.5"/>
     <circle cx="1100" cy="600" r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="600" cy="100" r="1.3" fill="white" opacity="0.7"/>
+    <circle cx="200" cy="140" r="1.1" fill="white" opacity="0.5"/>
+    <circle cx="720" cy="220" r="1.4" fill="white" opacity="0.8"/>
+    <circle cx="350" cy="330" r="1.2" fill="white" opacity="0.6"/>
+    <circle cx="980" cy="310" r="1.3" fill="white" opacity="0.5"/>
+    <circle cx="520" cy="500" r="1.1" fill="white" opacity="0.7"/>
+    <circle cx="840" cy="560" r="1.2" fill="white" opacity="0.6"/>
+    <circle cx="110" cy="720" r="1" fill="white" opacity="0.4"/>
   </svg>
 
   <header>
+    <svg class="header-stars" width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none">
+      <circle cx="75" cy="50" r="1.2" fill="white" opacity="0.75"/>
+      <circle cx="180" cy="75" r="1" fill="white" opacity="0.6"/>
+      <circle cx="260" cy="30" r="1.1" fill="white" opacity="0.7"/>
+      <circle cx="340" cy="95" r="1.3" fill="white" opacity="0.8"/>
+      <circle cx="420" cy="45" r="1" fill="white" opacity="0.5"/>
+      <circle cx="520" cy="85" r="1.4" fill="white" opacity="0.7"/>
+      <circle cx="620" cy="60" r="1.1" fill="white" opacity="0.6"/>
+      <circle cx="720" cy="35" r="1.2" fill="white" opacity="0.8"/>
+      <circle cx="820" cy="90" r="1" fill="white" opacity="0.55"/>
+      <circle cx="920" cy="55" r="1.3" fill="white" opacity="0.7"/>
+      <circle cx="1020" cy="40" r="1.2" fill="white" opacity="0.6"/>
+      <circle cx="1120" cy="85" r="1.1" fill="white" opacity="0.65"/>
+      <circle cx="175" cy="170" r="1" fill="white" opacity="0.5"/>
+      <circle cx="275" cy="145" r="1.3" fill="white" opacity="0.7"/>
+      <circle cx="375" cy="180" r="1.2" fill="white" opacity="0.6"/>
+      <circle cx="475" cy="135" r="1.4" fill="white" opacity="0.8"/>
+      <circle cx="575" cy="170" r="1.1" fill="white" opacity="0.6"/>
+      <circle cx="675" cy="155" r="1" fill="white" opacity="0.5"/>
+      <circle cx="775" cy="120" r="1.2" fill="white" opacity="0.7"/>
+      <circle cx="875" cy="165" r="1" fill="white" opacity="0.6"/>
+    </svg>
     <div class="hero">
       <div>
         <div class="names">Alexander</div>
@@ -425,39 +554,59 @@
     </div>
 
     <nav>
-      <a href="#details">Hochzeitsdetails</a>
+      <a href="#begrüßung">Begrüßung</a>
+      <a href="#details">Anfahrt & Unterkunft</a>
       <a href="#ablaufplan">Ablaufplan</a>
       <a href="#rückmeldung">Rückmeldung</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#faq">Weitere Fragen & Antworten</a>
       <a href="#Playlist">Playlist</a>
-      <a href="#faq">FAQ</a>
+
     </nav>
   </header>
 
   <main>
-    <section id="details">
-      <h2>Hochzeitsdetails</h2>
-      <p>Wir freuen uns sehr, diesen besonderen Tag mit unserer Familie und unseren Freunden zu feiern. Begleitet uns zu einer schönen Zeremonie, gefolgt von einem Abendessen und Tanz!</p>
+    <section id="begrüßung">
+      <h2>Begrüßung</h2>
+      <div class="greeting-wrap">
+        <img src="webseite\1.png" alt="Begrüßungsfoto" class="greeting-image">
+      </div>
+      <div class="countdown-box">
+        <div id="countdown">00 Tage 00:00:00</div>
+        <p>Zeit bis zum 10.10.2026</p>
+      </div>
+      <p class="greeting-text">Liebe Familie, liebe Freunde,<br>
+      ein ganz besonderer Tag steht bevor, den wir gemeinsam mit euch feiern möchten.<br>
+      Wir laden euch herzlich ein, unsere Hochzeit zu feiern und diesen einzigartigen Moment mit uns zu erleben!</p>
+    </section>
 
-      <p>
-        <strong>Wegbeschreibung:</strong><br>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Gasthaus+zur+Linde+Hauptstra%C3%9Fe+15+29393+Gro%C3%9F+Oesingen&travelmode=driving" target="_blank" rel="noopener noreferrer" class="rsvp-btn" style="padding:0.65em 1.4em; font-size:0.95rem; display:inline-block;">Route anzeigen</a>
-      </p>
-      <iframe class="map-embed" src="https://www.google.com/maps?q=Gasthaus+zur+Linde+Hauptstra%C3%9Fe+15+29393+Gro%C3%9F+Oesingen&output=embed" aria-hidden="false" title="Karte: Gasthaus zur Linde"></iframe>
+    <section id="details">
+      <h2>Anfahrt & Unterkunft</h2>
+      <p>Das Gasthaus „Zur Linde“ ist zentral an der B4 in Groß Oesingen gelegen.<br> 
+        Es finden sich einseitig in der Mühlenstraße und hinter dem Gasthaus an der Schützenstraße Parkmöglichkeiten.<br>
+        Bitte beachtet hierfür die Markierungen in eurer Einladung.<br>
+        Der Saaleingang befindet sich an der Südseite an der Mühlenstraße und ist auch barrierefrei zu erreichen.</p>
+      <iframe class="map-embed" src="https://www.google.com/maps?q=Gasthaus+zur+Linde+Hauptstra%C3%9Fe+15+29393+Gro%C3%9F+Oesingen&output=embed" aria-hidden="false" title="Karte: Gasthaus zur Linde"></iframe><br>
+      <p>Für unsere Gäste von weiter weg empfehlen wir als Übernachtungsmöglichkeit den <a href="https://www.hanken-hof.de/" style="color: #CCA300"; target="_blank" rel="noopener noreferrer">Hanken Hof</a> in Zahrenholz / Groß Oesingen, der <a href="https://www.gasthof-schoenecke.de/" style="color: #CCA300"; target="_blank" rel="noopener noreferrer">Landgasthof Schönecke</a> in Wahrenholz oder das <a href="https://www.lavital-hotel.de/" style="color: #CCA300"; target="_blank" rel="noopener noreferrer">laVital</a> in Wesendorf.<br>
+        Ab 22 Uhr gibt es einen kostenlosen Shuttle-Service für den 15-km-Umkreis um Groß Oesingen.</p>
     </section>
 
     <section id="ablaufplan">
       <h2>Ablaufplan</h2>
       <ul>
-        <li><strong>16:00 Uhr</strong> – Zeremonie</li>
-        <li><strong>17:00 Uhr</strong> – Sektempfang</li>
-        <li><strong>18:00 Uhr</strong> – Abendessen</li>
-        <li><strong>20:00 Uhr</strong> – Tanz &amp; Feier</li>
+        <li><strong>13:00 Uhr</strong> – Empfang mit Sekt & Fingerfood</li>
+        <li><strong>16:30 Uhr</strong> – Gemeinsames Abendessen</li>
+        <li><strong>19:00 Uhr</strong> – Eröffnungstanz & Party</li>
+        <li><strong>21:00 Uhr</strong> – Hochzeitstorte & Danksagungen</li>
+        <li><strong>22:00 Uhr</strong> – Verabschiedung Kinder & Party</li>
+        <li><strong>00:00 Uhr</strong> – Mitternachtsbuffet</li>
+        <li><strong>00:30 Uhr</strong> – Wedding-Rave</li>
       </ul>
     </section>
 
     <section id="rückmeldung">
       <h2>Rückmeldung</h2>
-      <p>Bitte gebt uns bis zum 1. September 2026 Bescheid, ob ihr kommen könnt.</p>
+      <p>Bitte gebt uns bis zum 31. Juli 2026 Bescheid, ob und mit wie vielen Personen ihr kommt.</p>
       <form id="rsvpForm">
         <label for="guestName">Name:</label><br>
         <input type="text" id="guestName" name="name" required>
@@ -479,32 +628,111 @@
       </form>
     </section>
 
-    <section id="faq">
-      <h2>Häufig gestellte Fragen</h2>
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <div class="contact-container">
+        <div class="contact-block">
+          <h3>Brautpaar</h3>
+          <p>Magdalena Knaus: 0151 40056941<br>
+            Alexander Eberhart: 0160 5637272</p>
+        </div>
+        <div class="contact-block">
+          <h3>Trauzeugen</h3>
+          <p> Magdalena Krempin: 0160 93324353<br>
+            Joachim Binder: 01511 2706566</p>
+        </div>
+      </div>
+    </section>
 
-      <details>
-        <summary>Gibt es Parkmöglichkeiten vor Ort?</summary>
-        <p>Ja, es gibt kostenfreie Parkplätze direkt am Gasthaus "zur Linde" sowie öffentliche Parkplätze in der Nähe.</p>
-      </details>
+    <section id="faq">
+      <h2>Weitere Fragen & Antworten</h2>
 
       <details>
         <summary>Gibt es eine Kleiderordnung?</summary>
-        <p>Keine strenge Kleiderordnung – gerne festlich. Achtet bitte auf wettergerechte Kleidung für Teile der Feier im Freien.</p>
+        <p>Wir freuen uns über eine festliche Garderobe – für die Herren gerne Anzug oder
+          ein schickes Hemd, für die Damen ein Kleid oder ein elegantes Outfit.
+          Eine bestimmte Farbpalette geben wir nicht vor. Wir bitten jedoch darum,
+          auf weiße Outfits bzw. Kleider sowie Jeans zu verzichten. Da unsere Feier im Oktober stattfindet,
+          denkt bitte auch an etwas Wärmeres für den Abend. Und ganz wichtig: Bringt bequeme Schuhe
+          mit – damit wir gemeinsam bis in die Nacht das Tanzbein schwingen können!</p>
       </details>
 
       <details>
-        <summary>Kann ich meine Begleitung mitbringen?</summary>
-        <p>Bitte gebt in eurer Rückmeldung an, ob ihr in Begleitung kommt und den Namen eurer Begleitung.</p>
+        <summary>Kann ich eine Begleitung mitbringen?</summary>
+        <p>Bitte richtet euch bei der Anzahl der Gäste nach den Namen, die auf eurer Einladung
+          angegeben sind. Solltet ihr den Wunsch haben, eine Begleitperson mitzubringen,
+          gebt uns bitte vorab Bescheid. </p>
       </details>
 
       <details>
-        <summary>Gibt es Übernachtungsmöglichkeiten in der Nähe?</summary>
-        <p>Ja, es gibt mehrere Hotels und Pensionen in der Umgebung. Wir schicken auf Wunsch gern Empfehlungen.</p>
+        <summary>Darf ich meine kleinen Kinder mitbringen?</summary>
+        <p>Eure kleinen Sternchen sind selbstverständlich herzlich willkommen und dürfen diesen
+          besonderen Tag mit uns genießen. Ab 22 Uhr möchten wir die Feier jedoch in einem kinderfreien
+          Rahmen fortsetzen und bitten euch, dies bei eurer Planung zu berücksichtigen.
+          Vielen Dank für euer Verständnis!</p>
+      </details>
+      
+      <details>
+        <summary>Wie sieht es aus mit Geschenken?</summary>
+        <p>Eure Anwesenheit an diesem besonderen Tag ein großes Geschenk für uns.
+          Wenn ihr uns jedoch zusätzlich eine Freude machen möchtet, könnt ihr dies gerne mit einer
+          finanziellen Unterstützung für unsere gemeinsame Zukunft tun.</p>
+      </details>
+      
+      <details>
+        <summary>Wie sieht die Verpflegung an dem Tag aus?</summary>
+        <p>Wir beginnen die Feier mit einem Sektempfang und leichtem Fingerfood. Das gemeinsame Abendessen
+          vom Buffet ist für 16:30 Uhr geplant – bitte esst daher vorher ganz normal zu Mittag.
+          Gegen 21:00 Uhr freuen wir uns auf die Hochzeitstorte mit Kaffee & Kuchen.
+          Um Mitternacht erwartet euch außerdem noch einmal ein kaltes Buffet.
+          Über den gesamten Tag hinweg wird es zusätzlich Fingerfood, Salate und kleine Appetizer geben.
+          Selbstverständlich sind auch die Getränke inklusive.
+          Kurz gesagt: Niemand soll hungrig oder durstig bleiben! </p>
+      </details>
+      
+      <details>
+        <summary>Wohin wende ich mich bei Unverträglichkeiten / speziellen Ernährungsbedürfnissen?</summary>
+        <p>Wir bemühen uns, alle uns bekannten Bedürfnisse und Unverträglichkeiten zu berücksichtigen,
+          damit für jeden etwas Passendes dabei ist. Solltet ihr darüber hinaus Allergien oder besondere
+          Ernährungswünsche haben, gebt uns bitte bis spätestens zum Rückmeldedatum Bescheid, damit wir
+          diese noch einplanen können.</p>
+      </details>
+      
+      <details>
+        <summary>Kann ich mich mit einem Redebeitrag oder einer Überraschung einbringen?</summary>
+        <p>Selbstverständlich! Bitte wendet euch hierfür an unsere Trauzeugen, sie helfen euch,
+          den perfekten Zeitpunkt zu finden.</p>
+      </details>
+      
+      <details>
+        <summary>Darf ich Fotos machen oder veröffentlichen? Wie lasse ich euch Fotos zukommen?</summary>
+        <p>Natürlich dürft ihr an diesem Tag gerne selbst Fotos machen und eure Eindrücke auch teilen.
+          Es wird eine Fotowand bzw. Fotobox geben, bei der ihr euch kreativ austoben könnt.
+          Zusätzlich begleitet uns ein wunderbarer Fotograf durch den Abend und hält all die besonderen
+          Augenblicke für uns fest. Bei wichtigen Programmpunkten bitten wir euch daher, ihm den Vortritt
+          zu lassen, damit er diese Momente ungestört einfangen kann. Wenn ihr jedoch gerade perfekt steht
+          oder das Gefühl habt, einen einzigartigen Moment festhalten zu können,
+          zückt selbstverständlich gern euer Handy. Ansonsten freuen wir uns sehr, wenn ihr gemeinsam mit uns
+          den Augenblick genießt und eure Smartphones zwischendurch auch einmal in der Tasche bleiben dürfen.</p>
       </details>
 
       <details>
-        <summary>Wohin wende ich mich bei Allergien / speziellen Essenswünschen?</summary>
-        <p>Bitte vermerkt Allergien oder besondere Essenswünsche in eurer Rückmeldung oder schreibt uns direkt per E-Mail.</p>
+        <summary>Wie lange wird gefeiert?</summary>
+        <p>Direkt nach unserem Hochzeitstanz eröffnen wir die Tanzfläche – und freuen uns darauf, euch dort zahlreich begrüßen zu dürfen!
+          Ab 22 Uhr darf die Musik gerne etwas weniger jugendfrei werden. Und ab Mitternacht übernimmt unser 
+          DJ mit energiegeladenen Techno-Beats – ab dann feiern wir open end und tanzen gemeinsam bis in die
+          frühen Morgenstunden.</p>
+      </details>
+
+      <details>
+        <summary>Ich muss kurzfristig absagen. Was nun?</summary>
+        <p>Das ist natürlich sehr schade, wir hätten euch sehr gerne dabeigehabt!
+          Bitte meldet euch am Tag der Feier bei unseren Trauzeugen.</p>
+      </details>
+
+      <details>
+        <summary>Ich habe noch weitere Fragen, die ich hier nicht beantwortet bekomme. An wen wende ich mich?</summary>
+        <p>Wendet euch gerne direkt an uns oder unsere Trauzeugen! Wir werden euch jede Frage gerne beantworten.</p>
       </details>
     </section>
 
@@ -512,7 +740,7 @@
       <h2>Playlist</h2>
       <p>Damit ihr euch schonmal in Stimmung bringen könnt, hört hier unsere Spotify-Auswahl:</p>
       <div style="margin-top:1.2rem;">
-        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" title="Spotify Playlist"></iframe>
+        <iframe src="https://open.spotify.com/playlist/3q5Lhx5u37O4MbduHZe5T9?si=1eiAnF7OTAibOO8TqqTKBQ" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" title="Spotify Playlist"></iframe>
       </div>
       <p style="font-size:0.9rem; margin-top:1rem; opacity:0.85;">Hinweis: Der Player funktioniert am besten, wenn Gäste in ihrem Spotify-Account eingeloggt sind.</p>
     </section>
@@ -544,6 +772,27 @@
       const mailtoLink = `mailto:Malex2026@outlook.de?subject=${encodeURIComponent(subject)}&body=${body}`;
       window.location.href = mailtoLink;
     }
+
+    function updateCountdown() {
+      const target = new Date('2026-10-10T00:00:00');
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = 'Es ist soweit!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+      const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
+      document.getElementById('countdown').textContent = `${days} Tage ${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
